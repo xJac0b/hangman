@@ -27,12 +27,7 @@ class Categories extends StatelessWidget {
           ]),
           IconButton(
               iconSize: 35,
-              icon: Icon(
-                Icons.arrow_back,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-              ),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 Navigator.of(context).pop();
               }),

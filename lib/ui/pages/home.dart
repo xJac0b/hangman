@@ -29,9 +29,6 @@ class Home extends StatelessWidget {
                     state.themeMode == ThemeMode.light
                         ? Icons.sunny
                         : Icons.mode_night,
-                    color: Theme.of(context).brightness == Brightness.light
-                        ? Colors.black
-                        : Colors.white,
                   ),
                   onPressed:
                       BlocProvider.of<ThemeCubit>(context).updateAppTheme),
@@ -40,9 +37,6 @@ class Home extends StatelessWidget {
                 iconSize: 35,
                 icon: Icon(
                   Icons.star,
-                  color: Theme.of(context).brightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white,
                 ),
                 onPressed: () {
                   print('link to App store');

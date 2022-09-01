@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hangman/ui/widgets/letters.dart';
+import 'package:hangman/ui/widgets/word.dart';
 
 class Game extends StatelessWidget {
   final String category;
@@ -9,15 +11,14 @@ class Game extends StatelessWidget {
     return Scaffold(
         body: Center(
       child: Column(children: [
-        Text(category),
+        Image.asset(
+            width: double.infinity, height: 200, 'assets/images/hangman.png'),
+        Text('Category: $category'),
+        const Word('jabako', {'j', 'a'}),
+        const Letters(),
         IconButton(
             iconSize: 35,
-            icon: Icon(
-              Icons.arrow_back,
-              color: Theme.of(context).brightness == Brightness.light
-                  ? Colors.black
-                  : Colors.white,
-            ),
+            icon: const Icon(Icons.settings),
             onPressed: () {
               Navigator.of(context).pop();
             }),
