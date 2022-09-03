@@ -11,16 +11,36 @@ class WordCubit extends Cubit<WordState> {
   late StreamSubscription lettersStreamSubscription;
   WordCubit({required String word, required this.lettersCubit})
       : super(WordState(word, {})) {
-    lettersStreamSubscription = lettersCubit.stream.listen((state) {
-      print(state.newChar);
-      if (state.newChar != null) addLetter(state.newChar ?? '');
+    lettersStreamSubscription = lettersCubit.stream.listen((letterState) {
+      print(letterState.newChar);
+      if (letterState.newChar != null) {
+        if (state.word.contains(letterState.newChar ?? '')) {
+          addLetter(letterState.newChar ?? '');
+        } else {
+          wrongLetter();
+        }
+      }
+      ;
     });
+  }
+
+  void wrongLetter() {
+    emit(state.copyWithStatus(WordStatus.mistake));
   }
 
   void addLetter(String char) {
     emit(state.copyWith(char));
+    bool full = true;
+    state.word.runes.forEach((code) {
+      if (String.fromCharCode(code) != ' ' &&
+          !state.usedChars.contains(String.fromCharCode(code))) {
+        full = false;
+      }
+    });
+    if (full) emit(state.copyWithStatus(WordStatus.full));
   }
 
+  @override
   Future<void> close() {
     lettersStreamSubscription.cancel();
     return super.close();

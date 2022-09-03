@@ -11,14 +11,18 @@ class Word extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       for (var i in word.characters)
-        Container(
-          constraints: const BoxConstraints(
-              minWidth: 20, minHeight: 20, maxWidth: 20, maxHeight: 20),
-          margin: const EdgeInsets.all(5.0),
-          decoration: const BoxDecoration(
-              border: Border(bottom: BorderSide(width: 3.0))),
-          child: letters.contains(i) ? Center(child: Text(i)) : const Text(''),
-        ),
+        i == ' '
+            ? SizedBox(width: 20)
+            : Container(
+                constraints: const BoxConstraints(
+                    minWidth: 20, minHeight: 20, maxWidth: 20, maxHeight: 20),
+                margin: const EdgeInsets.all(5.0),
+                decoration: const BoxDecoration(
+                    border: Border(bottom: BorderSide(width: 3.0))),
+                child: letters.contains(i)
+                    ? Center(child: Text(i))
+                    : const Text(''),
+              ),
     ]);
   }
 }
