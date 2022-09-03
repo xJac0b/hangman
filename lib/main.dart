@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hangman/logic/cubits/letters/letters_cubit.dart';
 import 'package:hangman/ui/constants/theme.dart';
 import 'package:hangman/ui/router/app_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,8 +23,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ThemeCubit(sharedPreferences),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ThemeCubit>(
+          create: (context) => ThemeCubit(sharedPreferences),
+        ),
+      ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
           return MaterialApp(
