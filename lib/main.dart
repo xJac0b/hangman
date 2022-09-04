@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hangman/logic/cubits/letters/letters_cubit.dart';
 import 'package:hangman/ui/constants/theme.dart';
 import 'package:hangman/ui/router/app_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';

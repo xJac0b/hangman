@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class MenuButton extends StatelessWidget {
   final String label, route;
@@ -23,7 +21,7 @@ class MenuButton extends StatelessWidget {
                 return color;
               }),
               shadowColor: MaterialStateProperty.all(Colors.transparent),
-              side: MaterialStateProperty.all(BorderSide(width: 2))),
+              side: MaterialStateProperty.all(const BorderSide(width: 2))),
           onPressed: () =>
               Navigator.pushNamed(context, route, arguments: label),
           child: Text(label,

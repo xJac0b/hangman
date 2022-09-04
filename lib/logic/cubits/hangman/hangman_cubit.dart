@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:hangman/logic/cubits/word/word_cubit.dart';
-import 'package:meta/meta.dart';
 
 part 'hangman_state.dart';
 

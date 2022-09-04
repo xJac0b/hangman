@@ -1,15 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/logic/cubits/letters/letters_cubit.dart';
 
 class Letter extends StatelessWidget {
   final String character;
   final bool? disabled;
-  Letter(
+  const Letter(
     this.character, {
     this.disabled,
     Key? key,
@@ -24,7 +20,7 @@ class Letter extends StatelessWidget {
                 BlocProvider.of<LettersCubit>(context).inputLetter(character);
               },
         style: ElevatedButton.styleFrom(
-          minimumSize: Size(40, 40),
+          minimumSize: const Size(40, 40),
           primary: Theme.of(context).primaryColor,
           onPrimary: Theme.of(context).textTheme.bodyText1!.color,
         ),

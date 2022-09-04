@@ -12,7 +12,7 @@ class Word extends StatelessWidget {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       for (var i in word.characters)
         i == ' '
-            ? SizedBox(width: 20)
+            ? const SizedBox(width: 20)
             : Container(
                 constraints: const BoxConstraints(
                     minWidth: 20, minHeight: 20, maxWidth: 20, maxHeight: 20),

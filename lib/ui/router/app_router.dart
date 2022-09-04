@@ -22,7 +22,7 @@ class AppRouter {
         return PageRouteBuilder(
           pageBuilder: (context, animation1, animation2) =>
               Game(category: settings.arguments.toString()),
-          transitionDuration: Duration(milliseconds: 100),
+          transitionDuration: const Duration(milliseconds: 100),
           reverseTransitionDuration: Duration.zero,
         );
       case Routes.inWork:
