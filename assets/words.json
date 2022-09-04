@@ -1,8 +1,8 @@
 {
-    "Geography": [],
-    "Food": "",
-    "Cinema": "",
-    "Sport": "",
+    "Geography": ["Poland"],
+    "Food": ["pizza"], 
+    "Cinema": ["movie", "movie star"],
+    "Sport": ["basketball", "football", "athletics", "champion"],
     "Music": ["accordion", "bongos", "trumpet", "drum set", "saxophone"],
     "Animals": ["Lion", "Monkey", "Tortoise", "Donkey", "Cockroach", "Turkey"]
 }

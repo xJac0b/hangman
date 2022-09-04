@@ -8,24 +8,27 @@ import 'package:hangman/logic/cubits/letters/letters_cubit.dart';
 import 'package:hangman/ui/widgets/letter.dart';
 
 class Letters extends StatelessWidget {
-  const Letters({Key? key}) : super(key: key);
+  final bool? disabled;
+  const Letters({Key? key, this.disabled}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LettersCubit, LettersState>(
       builder: (context, state) {
         return Column(
-            children: _getLetters(state.characters, state.charactersState));
+            children: _getLetters(state.characters, state.charactersState,
+                disabled: disabled ?? false));
       },
     );
   }
 
-  List<Row> _getLetters(List<String> chars, Map<String, bool> charsStates) {
+  List<Row> _getLetters(List<String> chars, Map<String, bool> charsStates,
+      {disabled = false}) {
     List<Letter> letters = [];
     List<Row> rows = [];
 
     chars.forEach((k) {
-      if (charsStates[k] ?? false) {
+      if ((charsStates[k] ?? false) && !disabled) {
         letters.add(Letter(k));
       } else {
         letters.add(Letter(k, disabled: true));

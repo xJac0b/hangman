@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hangman/ui/constants/categories.dart';
 import 'package:hangman/ui/constants/routes.dart';
 import 'package:hangman/ui/widgets/menu_button.dart';
 
@@ -14,16 +15,32 @@ class Categories extends StatelessWidget {
         children: [
           const Text('Categories', style: TextStyle(fontSize: 60)),
           Column(children: const [
-            MenuButton(label: 'All', route: Routes.game, color: Colors.blue),
             MenuButton(
-                label: 'Geography', route: Routes.game, color: Colors.green),
-            MenuButton(label: 'Food', route: Routes.game, color: Colors.yellow),
+                label: Category.all, route: Routes.newGame, color: Colors.blue),
             MenuButton(
-                label: 'Cinema', route: Routes.game, color: Colors.orange),
-            MenuButton(label: 'Sport', route: Routes.game, color: Colors.red),
-            MenuButton(label: 'Music', route: Routes.game, color: Colors.pink),
+                label: Category.geography,
+                route: Routes.newGame,
+                color: Colors.green),
             MenuButton(
-                label: 'Animals', route: Routes.game, color: Colors.purple),
+                label: Category.food,
+                route: Routes.newGame,
+                color: Colors.yellow),
+            MenuButton(
+                label: Category.cinema,
+                route: Routes.newGame,
+                color: Colors.orange),
+            MenuButton(
+                label: Category.sport,
+                route: Routes.newGame,
+                color: Colors.red),
+            MenuButton(
+                label: Category.music,
+                route: Routes.newGame,
+                color: Colors.pink),
+            MenuButton(
+                label: Category.animals,
+                route: Routes.newGame,
+                color: Colors.purple),
           ]),
           IconButton(
               iconSize: 35,

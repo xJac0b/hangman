@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:hangman/data/repo/word_repo.dart';
 import 'package:hangman/logic/cubits/letters/letters_cubit.dart';
 import 'package:meta/meta.dart';
 
@@ -9,8 +10,9 @@ part 'word_state.dart';
 class WordCubit extends Cubit<WordState> {
   final LettersCubit lettersCubit;
   late StreamSubscription lettersStreamSubscription;
-  WordCubit({required String word, required this.lettersCubit})
-      : super(WordState(word, {})) {
+  WordCubit({required String category, required this.lettersCubit})
+      : super(WordState('', {})) {
+    setWord(category);
     lettersStreamSubscription = lettersCubit.stream.listen((letterState) {
       print(letterState.newChar);
       if (letterState.newChar != null) {
@@ -44,5 +46,11 @@ class WordCubit extends Cubit<WordState> {
   Future<void> close() {
     lettersStreamSubscription.cancel();
     return super.close();
+  }
+
+  void setWord(String category) async {
+    WordRepository repo = WordRepository();
+    String word = await repo.getWordByCategory(category);
+    emit(WordState(word, {}));
   }
 }

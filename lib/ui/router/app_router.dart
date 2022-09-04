@@ -14,10 +14,13 @@ class AppRouter {
         );
       case Routes.categories:
         return CustomPageRoute(child: const Categories(), settings: settings);
-      case Routes.game:
+      case Routes.newGame:
         return CustomPageRoute(
             child: Game(category: settings.arguments.toString()),
             settings: settings);
+      case Routes.game:
+        return MaterialPageRoute(
+            builder: (_) => Game(category: settings.arguments.toString()));
       case Routes.inWork:
         return MaterialPageRoute(
           builder: (_) => const Text("In Work"),

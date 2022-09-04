@@ -4,9 +4,11 @@ import 'package:flutter/widgets.dart';
 
 class Word extends StatelessWidget {
   final String word;
-  final Set<String> letters;
-  const Word(this.word, this.letters, {Key? key}) : super(key: key);
-
+  late final Set<String> letters;
+  Word(this.word, this.letters, {Key? key}) : super(key: key);
+  Word.gameOver(this.word, {Key? key}) {
+    this.letters = this.word.characters.toSet();
+  }
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
