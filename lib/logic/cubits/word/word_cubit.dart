@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:hangman/data/repo/word_repo.dart';
 import 'package:hangman/logic/cubits/letters/letters_cubit.dart';
-import 'package:meta/meta.dart';
 
 part 'word_state.dart';
 
@@ -14,7 +13,6 @@ class WordCubit extends Cubit<WordState> {
       : super(WordState('', {})) {
     setWord(category);
     lettersStreamSubscription = lettersCubit.stream.listen((letterState) {
-      print(letterState.newChar);
       if (letterState.newChar != null) {
         if (state.word.contains(letterState.newChar ?? '')) {
           addLetter(letterState.newChar ?? '');
@@ -22,7 +20,6 @@ class WordCubit extends Cubit<WordState> {
           wrongLetter();
         }
       }
-      ;
     });
   }
 
@@ -33,12 +30,12 @@ class WordCubit extends Cubit<WordState> {
   void addLetter(String char) {
     emit(state.copyWith(char));
     bool full = true;
-    state.word.runes.forEach((code) {
+    for (var code in state.word.runes) {
       if (String.fromCharCode(code) != ' ' &&
           !state.usedChars.contains(String.fromCharCode(code))) {
         full = false;
       }
-    });
+    }
     if (full) emit(state.copyWithStatus(WordStatus.full));
   }
 

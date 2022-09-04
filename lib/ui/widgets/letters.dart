@@ -1,7 +1,3 @@
-import 'dart:collection';
-
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/logic/cubits/letters/letters_cubit.dart';
@@ -27,7 +23,7 @@ class Letters extends StatelessWidget {
     List<Letter> letters = [];
     List<Row> rows = [];
 
-    chars.forEach((k) {
+    for (var k in chars) {
       if ((charsStates[k] ?? false) && !disabled) {
         letters.add(Letter(k));
       } else {
@@ -38,7 +34,7 @@ class Letters extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center, children: letters));
         letters = [];
       }
-    });
+    }
     return rows;
   }
 }

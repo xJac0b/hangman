@@ -1,13 +1,11 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 
 class Word extends StatelessWidget {
   final String word;
   late final Set<String> letters;
   Word(this.word, this.letters, {Key? key}) : super(key: key);
-  Word.gameOver(this.word, {Key? key}) {
-    this.letters = this.word.characters.toSet();
+  Word.gameOver(this.word, {Key? key}) : super(key: key) {
+    letters = word.characters.toSet();
   }
   @override
   Widget build(BuildContext context) {

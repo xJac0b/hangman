@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hangman/logic/cubits/theme/theme_cubit.dart';
 import 'package:hangman/ui/constants/routes.dart';
-import 'package:hangman/ui/widgets/app_bar.dart';
 import 'package:hangman/ui/widgets/menu_button.dart';
 
 class Home extends StatelessWidget {
@@ -35,7 +34,7 @@ class Home extends StatelessWidget {
             ),
             IconButton(
                 iconSize: 35,
-                icon: Icon(
+                icon: const Icon(
                   Icons.star,
                 ),
                 onPressed: () {
