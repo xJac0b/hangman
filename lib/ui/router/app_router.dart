@@ -19,8 +19,12 @@ class AppRouter {
             child: Game(category: settings.arguments.toString()),
             settings: settings);
       case Routes.game:
-        return MaterialPageRoute(
-            builder: (_) => Game(category: settings.arguments.toString()));
+        return PageRouteBuilder(
+          pageBuilder: (context, animation1, animation2) =>
+              Game(category: settings.arguments.toString()),
+          transitionDuration: Duration(milliseconds: 100),
+          reverseTransitionDuration: Duration.zero,
+        );
       case Routes.inWork:
         return MaterialPageRoute(
           builder: (_) => const Text("In Work"),

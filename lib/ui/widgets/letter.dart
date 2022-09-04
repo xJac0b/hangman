@@ -23,7 +23,11 @@ class Letter extends StatelessWidget {
             : () {
                 BlocProvider.of<LettersCubit>(context).inputLetter(character);
               },
-        style: ElevatedButton.styleFrom(minimumSize: Size(40, 40)),
+        style: ElevatedButton.styleFrom(
+          minimumSize: Size(40, 40),
+          primary: Theme.of(context).primaryColor,
+          onPrimary: Theme.of(context).textTheme.bodyText1!.color,
+        ),
         child: Text(character));
   }
 }

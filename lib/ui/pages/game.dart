@@ -56,15 +56,24 @@ class Game extends StatelessWidget {
                               ? ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Theme.of(context).primaryColor,
+                                          border:
+                                              Border.all(color: Colors.black)),
                                       alignment: Alignment.center,
                                       width: 200,
                                       height: 100,
-                                      color: Color.fromARGB(230, 0, 0, 0),
+                                      //color: Theme.of(context).primaryColor,
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
+                                              style: TextStyle(
+                                                  color: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1!
+                                                      .color),
                                               textAlign: TextAlign.center,
                                               "${state.status == HangmanStatus.win ? "WIN" : "GAME OVER"}"),
                                           IconButton(
