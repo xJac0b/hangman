@@ -1,16 +1,12 @@
 # hangman
 
-A new Flutter project.
+Simple hangman game app made in flutter with bloc library for state managment. 
 
-## Getting Started
+## Home page:
+![image](https://user-images.githubusercontent.com/85969059/189490165-5fd2411f-7693-41bb-9aca-a77de5910925.png)
 
-This project is a starting point for a Flutter application.
+## Category page:
+![image](https://user-images.githubusercontent.com/85969059/189490175-5e8bf18d-7ae3-4963-87c7-fd22c17c8dd4.png)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Game page:
+![image](https://user-images.githubusercontent.com/85969059/189490211-5adf1ffe-60d2-4899-94a8-c9be08e3c54b.png)
